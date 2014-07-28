@@ -1,0 +1,48 @@
+
+
+/* /////////////////////////////////////////////////////
+
+All Recipes Email Template
+Author: jonathan@wintr.us
+
+///////////////////////////////////////////////////// */
+
+/* Variables
+--------------------------------------------- */
+
+// Colors
+green = #006b00
+green-gradient-dark = #147114
+green-gradient-light = #3E8C3D
+grey = #96989c
+lightgrey = rgb(236, 238,239)
+grey-dark = #444444
+error = #f90057
+base-color = grey-dark
+lightyellow = #F6F6E5
+yelloworange = #F5A623
+orange = #FF6600
+blue = #6CAEDF
+
+// Text
+body-font-size = 18px
+base-line-height = 1.3
+
+spacer = body-font-size
+
+// Responsive switches (overridden in ie.styl)
+fix-mqs ?= false
+old-ie ?= false
+// Breakpoints
+desktop = 1300px
+tablet = 800px
+largePhone = 600px
+@import '_ink'
+@import '_utils'
+@import 'jeet'
+@import '_base'
+@import '_layout'
+@import '_type'
+
+@import 'modules/*'
+@import 'templates/*'

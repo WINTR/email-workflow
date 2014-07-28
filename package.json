@@ -1,0 +1,32 @@
+{
+  "name": "email_build",
+  "version": "0.0.0",
+  "private": true,
+  "devDependencies": {
+    "coffee-script": "^1.7.1",
+    "del": "^0.1.1",
+    "gulp": "^3.8.2",
+    "gulp-autoprefixer": "0.0.8",
+    "gulp-combine-media-queries": "^0.1.0",
+    "gulp-connect": "^2.0.5",
+    "gulp-html2txt": "0.0.1",
+    "gulp-imagemin": "^0.6.1",
+    "gulp-inline-css": "^0.2.7",
+    "gulp-inline-source": "0.0.2",
+    "gulp-jade": "^0.6.1",
+    "gulp-livereload": "^2.1.0",
+    "gulp-load-plugins": "^0.5.3",
+    "gulp-notify": "^1.4.0",
+    "gulp-plumber": "^0.6.3",
+    "gulp-smoosher": "0.0.5",
+    "gulp-stylus": "^1.0.2",
+    "gulp-util": "^2.2.19",
+    "imagemin-pngcrush": "^0.1.0",
+    "nodemailer": "^0.7.0",
+    "q": "^1.0.1",
+    "run-sequence": "^0.3.6"
+  },
+  "dependencies": {
+    "promise": "^5.0.0"
+  }
+}

@@ -1,0 +1,166 @@
+/* /////////////////////////////////////////////////////
+
+UTILS
+General CSS utilities and SASS mixins
+
+///////////////////////////////////////////////////// */
+
+
+.no-flicker
+  -webkit-transform translate3d(0, 0, 0)
+
+.hide-text
+  border 0
+  font 0/0 a
+  text-shadow none
+  color transparent
+  background-color transparent
+
+
+.hidden
+  display none
+
+
+.orange
+  color orange
+
+.textCenter
+  text-align center
+
+.font-serif
+  font-family Georgia, serif
+.font-sans
+  font-family sans
+.center
+  text-align center
+  img
+    margin 0 auto
+
+.template_nav
+  list-style none
+  @extends .center
+  padding spacer 0
+  li
+    display inline
+    margin-right 10px
+
+/* Vertical Spacing / Borders
+------------------------------------------------ */
+.container
+  &.pad
+    margin (spacer * 2) auto
+.panel
+  border none
+
+.grey 
+  background lightgrey
+
+.yellow
+  background yelloworange
+
+.row .spacer
+  padding 12px 0 0
+  display block
+.row .half-spacer
+  padding 5px 0 0
+  display block
+
+.border-bottom
+  border-bottom 2px solid lightgrey
+
+.right
+  text-align right
+
+.half-spacer td
+  padding spacer * .5
+.spacer td
+  padding spacer
+.spacer.double td
+  padding spacer * 1.5
+
+.no-pad
+  padding 0 !important
+.pad-bottom 
+  padding-bottom spacer
+.pad-left
+  padding-left spacer
+.pad-right
+  padding-right spacer
+
+table.columns td.pad 
+  padding 12px
+
+.two-thirds
+  width 60%
+  text-align center
+.one-third
+  width 50%
+
+
+.column-border
+  border-right 1px solid #DDDDDD
+  border-left 1px solid #DDDDDD
+
+td.border-top
+  border-top 2px solid lightgrey
+  padding-top 10px
+
+.grey-border
+  border 2px solid lightgrey
+  padding 12px
+
+  
+.outer-pad
+  +above(tablet)
+    padding 0 (spacer * 2) (spacer * 2)
+
+
+
+/* Responsive Mixins
+   see: http://jakearchibald.github.com/sass-ie
+------------------------------------------------ */
+
+// To create min-width media queries
+above(width)
+  if fix-mqs
+    if fix-mqs >= width
+      {block}
+  else
+    @media screen and (min-width: width)
+      {block}
+
+
+// To create max-width media queries
+below(width)
+  if fix-mqs
+    if fix-mqs <= width
+      {block}
+  else
+    @media screen and (max-width: width)
+      {block}
+
+
+// For only old IE
+old-ie()
+  if $old-ie
+    {block}
+
+
+// Hide on mobile
+.no-mobile
+  display: none
+  
+  +above(tablet)
+    display block
+
+
+// Only on mobile
+.mobile-only
+  display: block
+  
+  +above(tablet)
+    display none
+    
+
+
+  
