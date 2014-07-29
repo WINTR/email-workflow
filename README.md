@@ -11,7 +11,7 @@
 
 #### Tasks:
 
-`gulp watch` compiles jade and stylus, livereload, and runs build task
+`gulp` compiles jade and stylus, livereload, and runs build task
 
 `gulp build` to inline css, add media queries to the head
 
