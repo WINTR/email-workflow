@@ -14,7 +14,6 @@ getMobileCSS = ->
 
 
 createEmailHTML = (file, css) ->
-  console.log file
   readFile("./build/"+file, "utf-8").then (html) =>
   
     headerCSS = '<style type="text/css">' + css + '</style>'
@@ -42,8 +41,6 @@ createFile = (file, html) ->
 module.exports = (files) ->
   css = getMobileCSS()
   .then (css)->
-    console.log css
-
     files.map (file) ->
       html = createEmailHTML(file, css)
       .then (html) ->
