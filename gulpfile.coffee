@@ -5,6 +5,7 @@ pngcrush = require('imagemin-pngcrush')
 send = require("./mailer")
 addMediaQueries = require("./addMediaQueries")
 runSequence  = require 'run-sequence'
+args  = require('yargs').argv
 
 
 
@@ -24,6 +25,13 @@ paths =
   build: "./build"
 
 
+# Files to email
+files = [
+  "welcome.html"
+  "exploring.html"
+  "app.html"
+  "myallrecipes.html"
+]
 
 # Direct errors to notification center
 handleError = ->
@@ -42,11 +50,7 @@ gulp.task "inline", ->
     .pipe($.inlineCss(preserveMediaQueries: true))
     .pipe gulp.dest(paths.build)
 
-# gulp.task "imagemin", ->
-#   gulp.src(paths.images)
-#     .pipe($.imagemin(use: [pngcrush()]))
-#     .pipe gulp.dest(paths.build + "images")
-#   return
+
 
 gulp.task "plaintext", ->
   gulp.src(paths.html)
@@ -105,6 +109,7 @@ gulp.task "watch", ->
   gulp.watch paths.stylus, ["stylus"]
   gulp.watch paths.jade, ["jade"]
 
+
   gulp.watch [
     paths.html
     paths.css
@@ -135,14 +140,15 @@ gulp.task "build", ->
 # SEND EMAIL (configure in ./mailer.coffee)
 # --------------------------------------------------------
 
+filename = args.file
 gulp.task "send", ->
-  send()
+  send(filename)
 
 # --------------------------------------------------------
 # Add Media Queries to Head (configure in ./addMediaQueries.coffee)
 # --------------------------------------------------------
 gulp.task "addMediaQueries", ->
-  addMediaQueries()
+  addMediaQueries(files)
 
 
 # --------------------------------------------------------

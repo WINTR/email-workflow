@@ -24,7 +24,8 @@
     "imagemin-pngcrush": "^0.1.0",
     "nodemailer": "^0.7.0",
     "q": "^1.0.1",
-    "run-sequence": "^0.3.6"
+    "run-sequence": "^0.3.6",
+    "yargs": "^1.2.6"
   },
   "dependencies": {
     "promise": "^5.0.0"

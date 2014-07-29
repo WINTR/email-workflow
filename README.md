@@ -8,15 +8,20 @@
 `gulp`
 
 
-#### TODO:
 
-- configure 'send' task to retrieve html from ./build/index.html before sending email (via a promise most likely)
+#### Tasks:
 
-#### Build and Test:
+`gulp watch` compiles jade and stylus, livereload, and runs build task
 
-`gulp build` to inline css, add media queries to the head, and send email
+`gulp build` to inline css, add media queries to the head
 
-`gulp send` to send html template in an email without building
+`gulp send --file filename` to send an html template in an email
+
+
+#### Todo:
+
+- clean up watch task
+
 
 #### References:
 

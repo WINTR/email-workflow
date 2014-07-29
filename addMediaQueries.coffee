@@ -1,57 +1,52 @@
-Promise = require("promise")
-readFile = Promise.denodeify(require("fs").readFile)
-writeFile = Promise.denodeify(require("fs").writeFileSync)
-files = [
-  "welcome.html"
-  "exploring.html"
-  "app.html"
-  "myallrecipes.html"
-]
+Q = require("q")
+fs = require("fs")
+readFile = Q.denodeify(fs.readFile)
+writeFile = Q.denodeify(fs.writeFile)
 
-readFiles = (files, store)->
-  # Read
-    
-  i = 0
-  while i < files.length
-    readFile("./build/"+files[i], "utf-8").then (html) =>
 
-      headerCSS = '<style type="text/css">' + mq + '</style>'
-
-      mqPos = html.indexOf("</head>")
-      output = [
-        html.slice(0, mqPos)
-        headerCSS
-        html.slice(mqPos)
-      ].join("")
-
-      store.push output
-    i++
-  return store
-
-writeFiles = (fileOutput) ->
-  # Write
-  i = 0
-  while i < files.length
-    writeFile "./build/mq/"+files[i], fileOutput[i], (err) =>
-      throw err  if err
-      console.log "File Saved!"
-      return
-    i++
-
-getMediaQueryCSS = ->
+getMobileCSS = ->
   readFile("./styles/css/styles.css", "utf-8").then (css) ->
     # css.substring()
     startMediaQuery = css.indexOf("@media only screen and")
-    mq = css.slice(startMediaQuery)
-    allTemplates = []
-    readFiles(files, allTemplates).then(data) ->
-      console.log data
+    return css.slice(startMediaQuery)
 
 
-    
-    
 
-  return
 
-module.exports = getMediaQueryCSS
+createEmailHTML = (file, css) ->
+  console.log file
+  readFile("./build/"+file, "utf-8").then (html) =>
+  
+    headerCSS = '<style type="text/css">' + css + '</style>'
+  
+    mqPos = html.indexOf("</head>")
+
+    return [
+      html.slice(0, mqPos)
+      headerCSS
+      html.slice(mqPos)
+    ].join("")
+
+
+
+
+createFile = (file, html) ->
+
+  writeFile "./build/mq/"+file, html, (err) =>
+    throw err  if err
+    console.log file+" Saved!"
+    return
+
+
+
+module.exports = (files) ->
+  css = getMobileCSS()
+  .then (css)->
+    console.log css
+
+    files.map (file) ->
+      html = createEmailHTML(file, css)
+      .then (html) ->
+        createFile(file, html)
+
 

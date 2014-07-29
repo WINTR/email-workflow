@@ -41,22 +41,19 @@ smtpTransport = nodemailer.createTransport("SMTP",
 # setup e-mail data with unicode symbols
 
 
-  
-
 
 # send mail with defined transport object
-sendEmail = () ->
-
-  html = readFile('./build/mq/index.html', 'utf-8')
+sendEmail = (filename)->
+  html = readFile('./build/mq/'+filename+'.html', 'utf-8')
   .then (html) ->
     # console.log html
     mailOptions =
       from: "Fred Foo ✔ <foo@blurdybloop.com>" # sender address
-      to: "jonathan@wintr.us,hudak.jonathan@gmail.com,lauren.krabbe@wintr.us" # list of receivers
+      to: "jonathan@wintr.us,hudak.jonathan@gmail.com" # list of receivers
       subject: "AllRecipes Email" # Subject line
       text: "AllRecipes Email" # plaintext body
       html: html # html body
-
+  
     smtpTransport.sendMail mailOptions, (error, response) ->
       if error
         console.log error
