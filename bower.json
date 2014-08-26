@@ -1,8 +1,0 @@
-{
-  "name": "zurb-ink",
-  "private": true,
-  "dependencies": {
-    "ink": "~1.0.5"
-  }
-}
-

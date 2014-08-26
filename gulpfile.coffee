@@ -25,13 +25,6 @@ paths =
   build: "./build"
 
 
-# Files to email
-files = [
-  "welcome.html"
-  "exploring.html"
-  "app.html"
-  "myallrecipes.html"
-]
 
 # Direct errors to notification center
 handleError = ->
@@ -134,15 +127,26 @@ gulp.task "build", ->
   ]
 
 
-
-
 # --------------------------------------------------------
 # SEND EMAIL (configure in ./mailer.coffee)
 # --------------------------------------------------------
 
+# Files to email
+files = [
+  "index.html"
+]
+
 filename = args.file
 gulp.task "send", ->
   send(filename)
+
+gulp.task "sendAll", ->
+  i = 0
+  while i < files.length
+    file = files[i].split(".")
+    send(file[0])
+    i++
+
 
 # --------------------------------------------------------
 # Add Media Queries to Head (configure in ./addMediaQueries.coffee)
