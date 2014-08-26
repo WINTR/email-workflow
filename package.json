@@ -1,7 +1,7 @@
 {
   "name": "email_build",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.0.1",
+  "private": false,
   "devDependencies": {
     "coffee-script": "^1.7.1",
     "del": "^0.1.1",
@@ -9,7 +9,6 @@
     "gulp-autoprefixer": "0.0.8",
     "gulp-combine-media-queries": "^0.1.0",
     "gulp-connect": "^2.0.5",
-    "gulp-html2txt": "0.0.1",
     "gulp-imagemin": "^0.6.1",
     "gulp-inline-css": "^0.2.7",
     "gulp-inline-source": "0.0.2",

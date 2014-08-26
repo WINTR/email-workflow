@@ -10,9 +10,6 @@ getMobileCSS = ->
     startMediaQuery = css.indexOf("@media only screen and")
     return css.slice(startMediaQuery)
 
-
-
-
 createEmailHTML = (file, css) ->
   readFile("./build/"+file, "utf-8").then (html) =>
   
@@ -26,17 +23,12 @@ createEmailHTML = (file, css) ->
       html.slice(mqPos)
     ].join("")
 
-
-
-
 createFile = (file, html) ->
 
   writeFile "./build/mq/"+file, html, (err) =>
     throw err  if err
     console.log file+" Saved!"
     return
-
-
 
 module.exports = (files) ->
   css = getMobileCSS()
