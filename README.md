@@ -41,4 +41,4 @@ To configure the send task to send multiple templates, just add each compiled te
 - [Gulp](http://gulpjs.com/)
 - [Nodemailer](http://www.nodemailer.com/)
 - [ZURB Ink Email Templates](http://zurb.com/ink/templates.php)
-
+- [Litmus](https://litmus.com) Resources for best practices, and Email Testing Services
